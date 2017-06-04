@@ -23,6 +23,14 @@ export default class RectWithText extends ElementGroup {
     return this.rect.cy
   }
 
+  get x() {
+    return this.rect.x
+  }
+
+  get y() {
+    return this.rect.y
+  }
+
   get value() {
     return this.text.text
   }

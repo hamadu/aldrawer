@@ -4,7 +4,7 @@ export default class ArrayElementHandler {
   }
 
   methods() {
-    return [this.setStyle, this.getElement, this.setElement, this.getValue, this.setValue]
+    return [this.setStyle, this.getElement, this.getValue, this.setValue]
   }
 
   setStyle(index, arg, value) {
@@ -15,15 +15,11 @@ export default class ArrayElementHandler {
     return this.elements[index]
   }
 
-  setElement(index, newRect) {
-    return this.elements[index] = newRect
-  }
-
   getValue(index) {
-    return this.elements[index].value
+    return this.getElement(index).value
   }
 
   setValue(index, newValue) {
-    this.elements[index].value = newValue
+    this.getElement(index).value = newValue
   }
 }
