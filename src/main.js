@@ -4,6 +4,7 @@ import RectWithText from '/src/model/rectWithText'
 import CircleWithText from '/src/model/circleWithText'
 import ArrayColumn from '/src/model/arrayColumn'
 import ArrayRow from '/src/model/arrayRow'
+import ArrayTable from '/src/model/arrayTable'
 import ConnectLine from '/src/model/connectLine'
 import Circle from '/src/model/circle'
 import Line from '/src/model/line'
@@ -41,7 +42,7 @@ export default class World {
   }
 }
 
-const world = new World('#app', { width: 640, height: 480 })
+const world = new World('#app', { width: 1280, height: 960 })
 
 const arr = new ArrayColumn(16, 16, 48, 48, Array.from('abracadabra'))
 world.add(arr)
@@ -54,6 +55,9 @@ world.add(arr2)
 
 const arr3 = new ArrayRow(416, 128, 48, 48, [1, 1, 4, 5, 1, 4], { index: true })
 world.add(arr3)
+
+const table = new ArrayTable(32, 480, 32, 32, [[1, 1, 4], [5, 1, 4], ['a', 'b', 'c', 'd', 'e', 'f']])
+world.add(table)
 
 const circle1 = new CircleWithText(60, 260, 32, '1')
 const circle2 = new CircleWithText(60, 420, 32, '2')

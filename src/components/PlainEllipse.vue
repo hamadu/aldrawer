@@ -1,7 +1,7 @@
 <template>
   <ellipse
-    :cx="value.x"
-    :cy="value.y"
+    :cx="value.cx"
+    :cy="value.cy"
     :rx="value.r"
     :ry="value.r"
     v-bind:style="value.style">

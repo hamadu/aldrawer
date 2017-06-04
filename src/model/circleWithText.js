@@ -7,8 +7,7 @@ export default class CircleWithText extends ElementGroup {
     const circle = new Circle(x, y, r)
     const text = new Text(x - r, y - r, r * 2, r * 2, value)
 
-    // FIXME: WTF
-    super([text, circle])
+    super([circle, text])
     this.text = text
     this.circle = circle
   }
@@ -18,11 +17,11 @@ export default class CircleWithText extends ElementGroup {
   }
 
   get cx() {
-    return this.circle.x
+    return this.circle.cx
   }
 
   get cy() {
-    return this.circle.y
+    return this.circle.cy
   }
 
   get value() {

@@ -1,7 +1,6 @@
 export default class ElementGroup {
   constructor(elements) {
     this.elements = elements
-
     this._x = elements[0].x
     this._y = elements[0].y
     this.positionDiffX = elements.map(e => e.x - this._x)
