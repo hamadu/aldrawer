@@ -11,7 +11,6 @@ import Line from '/src/model/line'
 import ObjectManager from '/src/model/objectManager'
 import App from './components/App.vue'
 
-
 export default class World {
   constructor(selector, options = {}) {
     const defaultOptions = {
