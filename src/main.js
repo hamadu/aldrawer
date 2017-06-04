@@ -3,6 +3,7 @@ import Vue from 'vue'
 import RectWithText from '/src/model/rectWithText'
 import ArrayRect from '/src/model/arrayRect'
 import ConnectLine from '/src/model/connectLine'
+import Circle from '/src/model/circle'
 import Line from '/src/model/line'
 
 import ObjectManager from '/src/model/objectManager'
@@ -49,6 +50,7 @@ world.addObject(connectLine)
 
 arr.getRect(0).y += 20
 
+world.addObject(new Circle(60, 260, 32))
 
 // const line = new Line(10, 20, 180, 320)
 // world.addObject(line)

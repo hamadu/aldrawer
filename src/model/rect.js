@@ -1,5 +1,3 @@
-import RectElement from '/src/model/svg/rectElement'
-
 export default class Rect {
   constructor(x, y, width, height, style = { fill: '#fff', stroke: '#000', 'stroke-width': 2 }) {
     this.type = 'rect'
