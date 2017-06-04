@@ -1,6 +1,3 @@
-import Rect from '/src/model/rect'
-import Text from '/src/model/text'
-
 export default class ElementGroup {
   constructor(elements) {
     this.elements = elements
