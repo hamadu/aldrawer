@@ -1,14 +1,13 @@
 import RectWithText from '/src/model/rectWithText'
+import ElementGroup from './elementGroup'
 
-export default class ArrayRect {
+export default class ArrayRow extends ElementGroup {
   constructor(x, y, w, h, values) {
-    this.rects = values.map((v, idx) => {
-      return new RectWithText(x + idx * w, y, w, h, values[idx])
+    const rects = values.map((v, idx) => {
+      return new RectWithText(x, y + idx * h, w, h, values[idx])
     })
-  }
-
-  getRectBox(index) {
-    return this.rects[index].rect
+    super(rects)
+    this.rects = rects
   }
 
   getRect(index) {
@@ -25,9 +24,5 @@ export default class ArrayRect {
 
   setValue(index, newValue) {
     this.rects[index].value = newValue
-  }
-
-  toElements() {
-    return Array.prototype.concat.apply([], this.rects.map(rect => rect.toElements()))
   }
 }

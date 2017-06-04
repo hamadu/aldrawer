@@ -10,7 +10,15 @@ export default class RectWithText extends ElementGroup {
     this.text = text
     this.rect = rect
   }
-  
+
+  get cx() {
+    return this.rect.x + this.rect.width / 2
+  }
+
+  get cy() {
+    return this.rect.y + this.rect.height / 2
+  }
+
   set width(width) {
     this.elements.forEach(e => e.width = width)
   }
