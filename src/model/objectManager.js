@@ -1,6 +1,7 @@
 export default class ObjectManager {
   constructor() {
     this.objects = []
+    this.connections = []
   }
 
   static getInstance() {
@@ -11,7 +12,13 @@ export default class ObjectManager {
   }
 
   addObject(object) {
-    this.objects.push(...object.toElements())
+    object.toElements().forEach(o => {
+      if (o.type === 'connect-line') {
+        this.connections.push(o)
+      } else {
+        this.objects.push(o)
+      }
+    })
   }
 
   addObjects(objects) {

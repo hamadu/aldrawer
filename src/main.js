@@ -20,11 +20,12 @@ export default class World {
 
     this.rootComponent = new Vue({
       el: selector,
-      template: '<App :width=width :height=height :objects=objects></App>',
+      template: '<App :width=width :height=height :connections=connections :objects=objects></App>',
       data: {
         width: svgOptions.width,
         height: svgOptions.height,
-        objects: ObjectManager.getInstance().objects
+        objects: ObjectManager.getInstance().objects,
+        connections: ObjectManager.getInstance().connections,
       },
       components: { App }
     })
@@ -50,12 +51,6 @@ world.addObject(connectLine)
 
 arr.getRect(0).y += 20
 
-world.addObject(new Circle(60, 260, 32))
-
-// const line = new Line(10, 20, 180, 320)
-// world.addObject(line)
-// const x = new RectWithText(24, 16, 64, 64, "X")
-// const y = new RectWithText(24 + 64, 16, 64, 64, "Y")
-// const z = new RectWithText(24 + 64 + 64, 16, 64, 64, "Z")
-// world.addObject(y)
-// world.addObject(z)
+const circle = new Circle(60, 260, 32)
+world.addObject(circle)
+world.addObject(new ConnectLine(arr.getRectBox(4), circle))
