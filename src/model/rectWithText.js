@@ -7,8 +7,8 @@ export default class RectWithText extends ElementGroup {
     const rect = new Rect(x, y, w, h)
     const text = new Text(x, y, w, h, value)
     super([rect, text])
-    this.text = text
     this.rect = rect
+    this.text = text
   }
 
   static create(x, y, w, h, value) {
@@ -16,11 +16,15 @@ export default class RectWithText extends ElementGroup {
   }
 
   get cx() {
-    return this.rect.x + this.rect.width / 2
+    return this.rect.cx
   }
 
   get cy() {
-    return this.rect.y + this.rect.height / 2
+    return this.rect.cy
+  }
+
+  get value() {
+    return this.text.text
   }
 
   set width(width) {
