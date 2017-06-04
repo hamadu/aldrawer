@@ -47,8 +47,6 @@ export default class RectWithText extends ElementGroup {
     this.text.text = value
   }
 
-
-
   setStyle(arg, value) {
     this.rect.style[arg] = value
   }

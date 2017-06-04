@@ -12,6 +12,11 @@ describe('constructor', function () {
     arrayRow.setValue(4, 'X')
     assert.equal(arrayRow.getValue(4), 'X')
   })
+
+  it('can set style correctly', function () {
+    arrayRow.setStyle(3, 'fill', '#f00')
+    assert.equal(arrayRow.getElement(3).rect.style['fill'], '#f00')
+  })
 })
 
 describe('position of elements', function () {
@@ -21,5 +26,12 @@ describe('position of elements', function () {
     const element = arrayRow.getElement(3)
     assert.equal(element.x, 20)
     assert.equal(element.y, 10 + 64 * 3)
+  })
+})
+
+describe('toElements', function () {
+  const arrayRow = new ArrayRow(0, 0, 10, 10, [1, 2, 3, 4, 5, 6, 7])
+  it('returns 7x2(rect and text) elements', function() {
+    assert.equal(arrayRow.toElements().length, 14)
   })
 })

@@ -8,7 +8,7 @@ export default class ArrayElementHandler {
   }
 
   setStyle(index, arg, value) {
-    this.elements[index].setStyle(arg, value)
+    this.getElement(index).setStyle(arg, value)
   }
 
   getElement(index) {

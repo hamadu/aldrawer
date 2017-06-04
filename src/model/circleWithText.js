@@ -23,6 +23,10 @@ export default class CircleWithText extends ElementGroup {
     return this.circle.y
   }
 
+  get value() {
+    return this.text.text
+  }
+
   set value(value) {
     this.text.text = value
   }
