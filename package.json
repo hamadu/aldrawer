@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "nyc --reporter=html --reporter=text mocha --compilers js:babel-core/register test/**/*.js",
+    "test": "nyc --all --reporter=html --reporter=text mocha --compilers js:babel-core/register test/**/*.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "",
@@ -37,5 +37,8 @@
     "vue-template-compiler": "^2.2.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
+  },
+  "nyc": {
+    "include": ["src/**/*.js"]
   }
 }
