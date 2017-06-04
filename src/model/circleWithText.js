@@ -11,6 +11,10 @@ export default class CircleWithText extends ElementGroup {
     this.circle = circle
   }
 
+  static create(x, y, r, value) {
+    return new CircleWithText(x, y, r, value)
+  }
+
   get cx() {
     return this.circle.x
   }

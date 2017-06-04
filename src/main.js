@@ -42,17 +42,18 @@ export default class World {
   }
 }
 
-// this is for demo
-// window.World = World
 const world = new World('#app', { width: 640, height: 480 })
 
 const arr = new ArrayColumn(16, 16, 48, 48, Array.from('abracadabra'))
 world.add(arr)
 
-const arr2 = new ArrayColumn(16, 128, 48, 48, Array.from('abr'))
+arr.setStyle(2, 'fill', '#ddf')
+arr.setStyle(4, 'fill', '#dfd')
+
+const arr2 = new ArrayColumn(16, 128, 64, 64, Array.from('abr'), { index: true })
 world.add(arr2)
 
-const arr3 = new ArrayRow(416, 128, 48, 48, [1, 1, 4, 5, 1, 4])
+const arr3 = new ArrayRow(416, 128, 48, 48, [1, 1, 4, 5, 1, 4], { index: true })
 world.add(arr3)
 
 const circle1 = new CircleWithText(60, 260, 32, '1')
@@ -64,7 +65,3 @@ world.add(circle3)
 world.add(new ConnectLine(circle1, circle2))
 world.add(new ConnectLine(circle2, circle3))
 world.add(new ConnectLine(circle3, circle1))
-
-// setInterval(() => {
-//   circle3.x += 16
-// }, 1000)

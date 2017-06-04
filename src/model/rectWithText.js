@@ -11,6 +11,10 @@ export default class RectWithText extends ElementGroup {
     this.rect = rect
   }
 
+  static create(x, y, w, h, value) {
+    return new RectWithText(x, y, w, h, value)
+  }
+
   get cx() {
     return this.rect.x + this.rect.width / 2
   }
@@ -29,5 +33,11 @@ export default class RectWithText extends ElementGroup {
 
   set value(value) {
     this.text.text = value
+  }
+
+
+
+  setStyle(arg, value) {
+    this.rect.style[arg] = value
   }
 }
