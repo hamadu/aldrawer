@@ -1,0 +1,37 @@
+{
+  "name": "svg-for-algorithm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "mocha --compilers js:babel-core/register test/**/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "spectre.css": "^0.2.14",
+    "vue": "^2.2.1"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "babel-register": "^6.24.1",
+    "babel-root-slash-import": "^1.1.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "karma": "^1.6.0",
+    "mocha": "^3.3.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "style-loader": "^0.18.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0"
+  }
+}
