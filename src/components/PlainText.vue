@@ -1,7 +1,7 @@
 <template>
   <text
-    :x="value.x"
-    :y="value.y"
+    :x="value.x + value.width / 2"
+    :y="value.y + value.height / 2"
     :width="value.width"
     :height="value.height"
     v-bind:style="value.style"

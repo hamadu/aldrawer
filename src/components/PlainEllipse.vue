@@ -1,9 +1,9 @@
 <template>
   <ellipse
-    :cx="value.cx"
-    :cy="value.cy"
-    :rx="value.rx"
-    :ry="value.ry"
+    :cx="value.x"
+    :cy="value.y"
+    :rx="value.r"
+    :ry="value.r"
     v-bind:style="value.style">
   </ellipse>
 </template>

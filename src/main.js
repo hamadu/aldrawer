@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import RectWithText from '/src/model/rectWithText'
+import CircleWithText from '/src/model/circleWithText'
 import ArrayRect from '/src/model/arrayRect'
 import ConnectLine from '/src/model/connectLine'
 import Circle from '/src/model/circle'
@@ -51,6 +52,16 @@ world.addObject(connectLine)
 
 arr.getRect(0).y += 20
 
-const circle = new Circle(60, 260, 32)
-world.addObject(circle)
-world.addObject(new ConnectLine(arr.getRectBox(4), circle))
+const circle1 = new CircleWithText(60, 260, 32, '1')
+const circle2 = new CircleWithText(60, 420, 32, '2')
+const circle3 = new CircleWithText(160, 340, 32, '3')
+world.addObject(circle1)
+world.addObject(circle2)
+world.addObject(circle3)
+world.addObject(new ConnectLine(circle1, circle2))
+world.addObject(new ConnectLine(circle2, circle3))
+world.addObject(new ConnectLine(circle3, circle1))
+
+// setInterval(() => {
+//   circle3.x += 16
+// }, 1000)
