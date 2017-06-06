@@ -4,15 +4,19 @@ export default class ArrayElementHandler {
   }
 
   methods() {
-    return [this.setStyle, this.getElement, this.getValue, this.setValue]
+    return [this.setStyle, this.setStyles, this.getElement, this.getValue, this.setValue]
   }
 
   setStyle(index, arg, value) {
     this.getElement(index).setStyle(arg, value)
   }
 
+  setStyles(styles) {
+    this.rectElements.forEach(e => e.setStyles(Object.assign({}, styles)))
+  }
+
   getElement(index) {
-    return this.elements[index]
+    return this.rectElements[index]
   }
 
   getValue(index) {

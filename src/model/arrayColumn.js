@@ -12,7 +12,18 @@ export default class ArrayColumn extends ElementGroup {
 
     super([...rects, ...indices])
 
+    this.rects = rects
+    this.indices = indices
+
     // add ability ArrayColumn to handle array elements
     new ArrayElementHandler(rects).methods().forEach(m => this[m.name] = m)
+  }
+
+  get rectElements() {
+    return this.rects
+  }
+
+  get indiceElements() {
+    return this.indices
   }
 }
