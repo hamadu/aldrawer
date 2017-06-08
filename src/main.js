@@ -101,24 +101,3 @@ class World {
 
 const make = World.make
 export { make }
-
-// const world = new World('#app', { width: 1280, height: 960 })
-//
-// const arr = world.array(16, 16, 48, 48, Array.from('abracadabra'))
-// arr.setStyle(2, 'fill', '#ddf')
-// arr.setStyle(4, 'fill', '#dfd')
-//
-// const arr2 = world.array(48, 128, 64, 64, Array.from('abr'), { orientation: 'row', index: true })
-//
-// const arr3 = world.array(416, 128, 48, 48, [1, 1, 4, 5, 1, 4], { orientation: 'column', index: true })
-//
-// const tableStyle = { fill: '#fff', stroke: '#000', 'stroke-width': 4 }
-// const table = world.table(32, 480, 32, 32, [[1, 1, 4], [5, 1, 4], ['a', 'b', 'c', 'd', 'e', 'f']], { shapeStyle: tableStyle })
-//
-// const circle1 = world.circle(200, 260, 32, { text: '1' })
-// const circle2 = world.circle(200, 420, 32, { text: '2' })
-// const circle3 = world.circle(400, 340, 48, { text: '3' })
-// world.connect(circle1, circle2)
-// world.connect(circle2, circle3)
-// world.connect(circle3, circle1)
-// window.world = world
