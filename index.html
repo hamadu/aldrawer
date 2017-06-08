@@ -13,9 +13,7 @@
     <script src="./dist/build.js"></script>
 
     <script>
-      console.log(world)
-
-      function* doit(haystack, needle) {
+      function* doit(world, haystack, needle) {
         const haystackArray = world.array(32, 64,          48, 48, Array.from(haystack), { index: true })
         const needleArray =   world.array(32, 64 + 96,     48, 48, Array.from(needle))
 
@@ -50,10 +48,10 @@
       }
 
       // 次ボタン
-
-
-
-
+      function prepare() {
+        var world = Aldrawer.make('#app', { width: 1280, height: 960 })
+        return doit(world, "abracadabra", "abra")
+      }
     </script>
   </body>
 </html>

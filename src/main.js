@@ -12,7 +12,7 @@ import Line from '/src/model/line'
 import ObjectManager from '/src/model/objectManager'
 import App from './components/App.vue'
 
-export default class World {
+class World {
   constructor(selector, options = {}) {
     const defaultOptions = {
       width: 320,
@@ -31,6 +31,10 @@ export default class World {
       },
       components: { App }
     })
+  }
+
+  static make(selector, options = {}) {
+    return new World(selector, options)
   }
 
   static get defaultShapeStyle() {
@@ -95,7 +99,10 @@ export default class World {
   }
 }
 
-const world = new World('#app', { width: 1280, height: 960 })
+const make = World.make
+export { make }
+
+// const world = new World('#app', { width: 1280, height: 960 })
 //
 // const arr = world.array(16, 16, 48, 48, Array.from('abracadabra'))
 // arr.setStyle(2, 'fill', '#ddf')
@@ -114,5 +121,4 @@ const world = new World('#app', { width: 1280, height: 960 })
 // world.connect(circle1, circle2)
 // world.connect(circle2, circle3)
 // world.connect(circle3, circle1)
-
-window.world = world
+// window.world = world

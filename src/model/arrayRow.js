@@ -14,8 +14,34 @@ export default class ArrayRow extends ElementGroup {
 
     this.rects = rects
     this.indices = indices
+  }
 
-    new ArrayElementHandler(rects).methods().forEach(m => this[m.name] = m)
+  get rectElements() {
+    return this.rects
+  }
+
+  get indiceElements() {
+    return this.indices
+  }
+
+  setStyle(index, arg, value) {
+    this.getElement(index).setStyle(arg, value)
+  }
+
+  setStyles(styles) {
+    this.rectElements.forEach(e => e.setStyles(Object.assign({}, styles)))
+  }
+
+  getElement(index) {
+    return this.rectElements[index]
+  }
+
+  getValue(index) {
+    return this.getElement(index).value
+  }
+
+  setValue(index, newValue) {
+    this.getElement(index).value = newValue
   }
 
   get rectElements() {
