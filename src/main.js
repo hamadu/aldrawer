@@ -97,6 +97,10 @@ class World {
     world.add(line)
     return line
   }
+
+  clear() {
+    ObjectManager.getInstance().clearObjects()
+  }
 }
 
 const make = World.make

@@ -24,4 +24,9 @@ export default class ObjectManager {
   addObjects(objects) {
     objects.forEach(o => this.addObject(o))
   }
+
+  clearObjects() {
+    this.objects.splice(0, this.objects.length, [])
+    this.connections.splice(0, this.connections.length, [])
+  }
 }
