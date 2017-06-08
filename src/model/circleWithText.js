@@ -31,4 +31,12 @@ export default class CircleWithText extends ElementGroup {
   set value(value) {
     this.text.text = value
   }
+
+  setStyles(styles) {
+    this.circle.style = styles
+  }
+
+  setStyle(arg, value) {
+    this.circle.style[arg] = value
+  }
 }

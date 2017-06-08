@@ -10,7 +10,10 @@ export default class ArrayTable extends ElementGroup {
     const rects = Array.prototype.concat.apply([], arrayOfRects)
     super(rects)
 
-    // add ability ArrayColumn to handle array elements
-    // new ArrayElementHandler(rects).methods().forEach(m => this[m.name] = m)
+    this.rects = rects
+  }
+
+  setStyles(styles) {
+    this.rects.forEach(e => e.setStyles(Object.assign({}, styles)))
   }
 }
