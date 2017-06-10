@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import UndirectedGraph from '/src/model/undirectedGraph'
 import RectWithText from '/src/model/rectWithText'
 import CircleWithText from '/src/model/circleWithText'
 import ArrayColumn from '/src/model/arrayColumn'
@@ -90,6 +91,16 @@ class World {
     }
     this.addObject(table)
     return table
+  }
+
+  undirectedGraph(x, y, w, h, graph, _options = {}) {
+    const options = Object.assign({ shapeStyle: World.defaultShapeStyle }, _options)
+    const undirectedGraph = new UndirectedGraph(x, y, w, h, graph)
+    if (options.shapeStyle) {
+      undirectedGraph.setStyles(options.shapeStyle)
+    }
+    this.addObject(undirectedGraph)
+    return undirectedGraph
   }
 
   connect(from, to) {

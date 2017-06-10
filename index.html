@@ -10,45 +10,9 @@
     <script src="./dist/build.js"></script>
 
     <script>
-      function* doit(world, haystack, needle) {
-        const haystackArray = world.array(32, 64,          48, 48, Array.from(haystack), { index: true })
-        const needleArray =   world.array(32, 64 + 96,     48, 48, Array.from(needle))
+      var world = Aldrawer.make('#app', { width: 1280, height: 960 })
 
-        const backArrayIdx =   world.array(32, 64 + 96 * 2,      32, 32, Array.from(needle))
-        const backArray    =   world.array(32, 64 + 96 * 2 + 32, 32, 32, [0, 0, 0, 0])
-
-        const hl = haystack.length
-        const nl = needle.length
-
-        yield("prepared")
-
-        const highlightStyle = { fill: '#fdd' }
-
-        for (let i = 0 ; i + nl <= hl ; i++) {
-          let found = true
-          for (let j = 0 ; j < nl ; j++) {
-            // yield(["step", i, j])
-            if (haystack.charAt(i+j) != needle.charAt(j)) {
-              found = false
-              break
-            }
-          }
-          if (found) {
-            yield(["found", i])
-          } else {
-            yield(["not found", i])
-          }
-
-          needleArray.x += 48
-        }
-        yield(["finished"])
-      }
-
-      // 次ボタン
-      function prepare() {
-        var world = Aldrawer.make('#app', { width: 1280, height: 960 })
-        return doit(world, "abracadabra", "abra")
-      }
+      world.undirectedGraph(64, 64, 256, 256, { values: [1, 2, 3, 4, 5], edges: [[0, 1], [1, 2], [2, 0], [2, 3], [1, 3]] })
     </script>
   </body>
 </html>
