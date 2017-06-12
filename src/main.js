@@ -50,6 +50,10 @@ class World {
     this.addObject(something)
   }
 
+  remove(something) {
+    ObjectManager.getInstance().removeObject(something)
+  }
+
   rect(x, y, w, h, _options = {}) {
     const options = Object.assign({ text: '', shapeStyle: World.defaultShapeStyle }, _options)
     const rect = new RectWithText(x, y, w, h, options.text)

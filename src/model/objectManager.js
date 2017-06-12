@@ -21,6 +21,17 @@ export default class ObjectManager {
     })
   }
 
+  removeObject(object) {
+    object.toElements().forEach(o => {
+      [this.objects, this.connections].forEach(set => {
+        const idx = set.indexOf(o)
+        if (idx >= 0) {
+          set.splice(idx, 1)
+        }
+      })
+    })
+  }
+
   addObjects(objects) {
     objects.forEach(o => this.addObject(o))
   }
