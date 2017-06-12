@@ -32,6 +32,14 @@ export default class ArrayRow extends ElementGroup {
     this.rectElements.forEach(e => e.setStyles(Object.assign({}, styles)))
   }
 
+  setTextStyle(index, arg, value) {
+    this.getElement(index).setTextStyle(arg, value)
+  }
+
+  setTextStyles(styles) {
+    this.rectElements.forEach(e => e.setTextStyles(Object.assign({}, styles)))
+  }
+
   getElement(index) {
     return this.rectElements[index]
   }
