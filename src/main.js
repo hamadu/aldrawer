@@ -21,17 +21,30 @@ class World {
     }
     const svgOptions = Object.assign(defaultOptions, options)
 
+    this.objects = []
     this.rootComponent = new Vue({
       el: selector,
       template: '<App :width=width :height=height :connections=connections :objects=objects></App>',
       data: {
         width: svgOptions.width,
         height: svgOptions.height,
-        objects: ObjectManager.getInstance().objects,
+        objects: this.objects,
         connections: ObjectManager.getInstance().connections,
       },
       components: { App }
     })
+  }
+
+  static array(x, y, w, h, values = [], _options = {}) {
+    const options = Object.assign({ orientation: 'column', index: false, shapeStyle: World.defaultShapeStyle }, _options)
+    const array = options.orientation === 'column' ?
+        new ArrayColumn(x, y, w, h, values, { index: options.index })
+      : new ArrayRow(x, y, w, h, values, { index: options.index })
+
+    // if (options.shapeStyle) {
+    //   array.setStyles(options.shapeStyle)
+    // }
+    return array
   }
 
   static make(selector, options = {}) {
@@ -42,12 +55,8 @@ class World {
     return { fill: '#fff', stroke: '#000', 'stroke-width': 2 }
   }
 
-  addObject(something) {
-    ObjectManager.getInstance().addObject(something)
-  }
-
   add(something) {
-    this.addObject(something)
+    this.objects.push(something)
   }
 
   remove(something) {
@@ -119,4 +128,5 @@ class World {
 }
 
 const make = World.make
-export { make }
+const array = World.array
+export { make, array }

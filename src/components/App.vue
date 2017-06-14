@@ -9,6 +9,8 @@
       <PlainEllipse :value="value" v-if="value.type == 'ellipse'" />
       <PlainText :value="value" v-if="value.type == 'text'" />
       <PlainLine :value="value" v-if="value.type == 'line'" />
+
+      <ArrayColumn :array="value" v-if="value.type == 'arrayColumn'" />
     </template>
   </svg>
 </template>
@@ -20,11 +22,13 @@ import PlainText from '/src/components/PlainText.vue'
 import PlainLine from '/src/components/PlainLine.vue'
 import ConnectLine from '/src/components/ConnectLine.vue'
 
+import ArrayColumn from '/src/components/ArrayColumn.vue'
+
 export default {
   name: 'app',
   props: ['width', 'height', 'objects', 'connections'],
   components: {
-    PlainRect, PlainEllipse, PlainText, PlainLine, ConnectLine
+    ArrayColumn, PlainRect, PlainEllipse, PlainText, PlainLine, ConnectLine
   }
 }
 </script>
