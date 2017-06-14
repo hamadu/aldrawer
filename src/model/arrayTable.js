@@ -10,7 +10,20 @@ export default class ArrayTable extends ElementGroup {
     const rects = Array.prototype.concat.apply([], arrayOfRects)
     super(rects)
 
+    this.rectTable = arrayOfRects
     this.rects = rects
+  }
+
+  setStyle(rowIndex, colIndex, arg, value) {
+    this.getElement(rowIndex, colIndex).setStyle(arg, value)
+  }
+
+  setTextStyle(rowIndex, colIndex, arg, value) {
+    this.getElement(rowIndex, colIndex).setTextStyle(arg, value)
+  }
+
+  getElement(rowIndex, colIndex) {
+    return this.rectTable[rowIndex][colIndex]
   }
 
   setStyles(styles) {
