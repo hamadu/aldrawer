@@ -1,34 +1,33 @@
 <template>
   <svg :width="width" :height="height">
-    <template v-for="value in connections">
-      <ConnectLine :value="value" v-if="value.type == 'connect-line'" />
+    <template v-for="value in objects">
+      <ConnectLine :line="value" v-if="value.type == 'connect-line'" />
     </template>
 
     <template v-for="value in objects">
-      <PlainRect :value="value" v-if="value.type == 'rect'" />
-      <PlainEllipse :value="value" v-if="value.type == 'ellipse'" />
-      <PlainText :value="value" v-if="value.type == 'text'" />
-      <PlainLine :value="value" v-if="value.type == 'line'" />
-
-      <ArrayColumn :array="value" v-if="value.type == 'arrayColumn'" />
+      <PlainLine      :line="value"   v-if="value.type == 'line'" />
+      <RectWithText   :object="value" v-if="value.type == 'rect'" />
+      <CircleWithText :object="value" v-if="value.type == 'circle'" />
+      <ArrayedObject  :array="value"  v-if="value.type == 'arrayedObject'" />
+      <TabularObject  :table="value"  v-if="value.type == 'tabularObject'" />
     </template>
   </svg>
 </template>
 
 <script>
-import PlainRect from '/src/components/PlainRect.vue'
-import PlainEllipse from '/src/components/PlainEllipse.vue'
-import PlainText from '/src/components/PlainText.vue'
 import PlainLine from '/src/components/PlainLine.vue'
 import ConnectLine from '/src/components/ConnectLine.vue'
 
-import ArrayColumn from '/src/components/ArrayColumn.vue'
+import RectWithText from '/src/components/RectWithText.vue'
+import CircleWithText from '/src/components/CircleWithText.vue'
+import ArrayedObject from '/src/components/ArrayedObject.vue'
+import TabularObject from '/src/components/TabularObject.vue'
 
 export default {
   name: 'app',
-  props: ['width', 'height', 'objects', 'connections'],
+  props: ['width', 'height', 'objects'],
   components: {
-    ArrayColumn, PlainRect, PlainEllipse, PlainText, PlainLine, ConnectLine
+    ArrayedObject, TabularObject, RectWithText, CircleWithText, PlainLine, ConnectLine
   }
 }
 </script>

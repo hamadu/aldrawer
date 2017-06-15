@@ -1,16 +1,16 @@
 <template>
   <line
-    :x1="value.from.cx"
-    :y1="value.from.cy"
-    :x2="value.to.cx"
-    :y2="value.to.cy"
-    v-bind:style="value.style">
+    :x1="line.from.cx"
+    :y1="line.from.cy"
+    :x2="line.to.cx"
+    :y2="line.to.cy"
+    v-bind:style="line.style">
   </line>
 </template>
 
 <script>
 export default {
   name: 'connect-line',
-  props: ['value']
+  props: ['line']
 }
 </script>

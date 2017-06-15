@@ -1,6 +1,7 @@
 <template>
   <g>
     <template v-for="(_, index) in array.values">
+      <RectWithText :object="array.getIndexElement(index)" v-if="array.options.index" />
       <RectWithText :object="array.getElement(index)" />
     </template>
   </g>

@@ -7,8 +7,4 @@ export default class Line {
     this.y2 = y2
     this.style = style
   }
-
-  toElements() {
-    return [this]
-  }
 }

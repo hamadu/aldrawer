@@ -1,12 +1,12 @@
 <template>
   <g>
-    <rect
-      :x="object.x"
-      :y="object.y"
-      :width="object.w"
-      :height="object.h"
+    <ellipse
+      :cx="object.x + object.w / 2"
+      :cy="object.y + object.h / 2"
+      :rx="object.w / 2"
+      :ry="object.h / 2"
       :style="object.style.shape">
-    </rect>
+    </ellipse>
     <text
       :x="object.x + object.w / 2"
       :y="object.y  + object.h / 2"
