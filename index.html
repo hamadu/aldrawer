@@ -12,7 +12,11 @@
     <script>
       var world = Aldrawer.make('#app', { width: 1280, height: 960 })
 
-      world.undirectedGraph(64, 64, 256, 256, { values: [1, 2, 3, 4, 5], edges: [[0, 1], [1, 2], [2, 0], [2, 3], [1, 3]] })
+      const arr = world.array(64, 64, 32, 32, [1, 2, 3, 4, 5])
+
+      arr.setTextStyle(2, 'font-weight', 'bold')
+
+      // world.undirectedGraph(64, 64, 256, 256, { values: [1, 2, 3, 4, 5], edges: [[0, 1], [1, 2], [2, 0], [2, 3], [1, 3]] })
     </script>
   </body>
 </html>
