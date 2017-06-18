@@ -16,7 +16,7 @@ export default class TabularObject {
   }
 
   static table(x, y, w, h, values = [], options = { index: false }) {
-    return new ArrayedObject(x, y, w, h, values, options)
+    return new TabularObject(x, y, w, h, values, options)
   }
 
   getColIndexElement(colIndex) {

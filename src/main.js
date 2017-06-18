@@ -7,6 +7,7 @@ import RectWithText from '/src/model/rectWithText'
 import CircleWithText from '/src/model/circleWithText'
 import ConnectLine from '/src/model/connectLine'
 import Line from '/src/model/line'
+import UndirectedGraph from '/src/model/undirectedGraph'
 
 import App from './components/App.vue'
 
@@ -53,6 +54,10 @@ class World {
 
   static table(x, y, w, h, values = [], options = { index: false }) {
     return TabularObject.table(x, y, w, h, values, options)
+  }
+
+  static undirectedGraph(x, y, w, h, graph = {}) {
+    return new UndirectedGraph(x, y, w, h, graph)
   }
 
   static connection(from, to) {
@@ -107,6 +112,12 @@ class World {
     const line = World.connection(...arg)
     this.add(line)
     return line
+  }
+
+  addUndirectedGraph(...arg) {
+    const graph = World.undirectedGraph(...arg)
+    this.add(graph)
+    return graph
   }
 
   add(something) {

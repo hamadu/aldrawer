@@ -5,11 +5,12 @@
     </template>
 
     <template v-for="value in objects">
-      <PlainLine      :line="value"   v-if="value.type == 'line'" />
-      <RectWithText   :object="value" v-if="value.type == 'rect'" />
-      <CircleWithText :object="value" v-if="value.type == 'circle'" />
-      <ArrayedObject  :array="value"  v-if="value.type == 'arrayedObject'" />
-      <TabularObject  :table="value"  v-if="value.type == 'tabularObject'" />
+      <PlainLine       :line="value"   v-if="value.type == 'line'" />
+      <RectWithText    :object="value" v-if="value.type == 'rect'" />
+      <CircleWithText  :object="value" v-if="value.type == 'circle'" />
+      <ArrayedObject   :array="value"  v-if="value.type == 'arrayedObject'" />
+      <TabularObject   :table="value"  v-if="value.type == 'tabularObject'" />
+      <UndirectedGraph :graph="value"  v-if="value.type == 'undirectedGraph'" />
     </template>
   </svg>
 </template>
@@ -22,12 +23,13 @@ import RectWithText from '/src/components/RectWithText.vue'
 import CircleWithText from '/src/components/CircleWithText.vue'
 import ArrayedObject from '/src/components/ArrayedObject.vue'
 import TabularObject from '/src/components/TabularObject.vue'
+import UndirectedGraph from '/src/components/UndirectedGraph.vue'
 
 export default {
   name: 'app',
   props: ['width', 'height', 'objects'],
   components: {
-    ArrayedObject, TabularObject, RectWithText, CircleWithText, PlainLine, ConnectLine
+    RectWithText, CircleWithText, PlainLine, ConnectLine, ArrayedObject, TabularObject, UndirectedGraph
   }
 }
 </script>
