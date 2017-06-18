@@ -1,45 +1,44 @@
-import Rect from './rect'
-import Text from './text'
-import ElementGroup from './elementGroup'
-
-export default class RectWithText extends ElementGroup {
-  constructor(x, y, w, h, value) {
-    const rect = new Rect(x, y, w, h)
-    const text = new Text(x, y, w, h, value)
-    super([rect, text])
-    this.rect = rect
+export default class RectWithText {
+  constructor(x, y, w, h, text = '', shapeStyle = RectWithText.defaultShapeStyle(), textStyle = RectWithText.defaultTextStyle(w, h)) {
+    this.type = 'rect'
+    this.x = x
+    this.y = y
+    this.w = w
+    this.h = h
     this.text = text
-  }
-
-  static create(x, y, w, h, value) {
-    return new RectWithText(x, y, w, h, value)
+    this.style = {
+      shape: shapeStyle,
+      text: textStyle
+    }
   }
 
   get cx() {
-    return this.rect.cx
+    return this.x + this.w / 2
   }
 
   get cy() {
-    return this.rect.cy
+    return this.y + this.h / 2
   }
 
-  get value() {
-    return this.text.text
+  static defaultShapeStyle() {
+    return {
+      fill: '#fff',
+      stroke: '#000',
+      'stroke-width': 2
+    }
   }
 
-  set width(width) {
-    this.elements.forEach(e => e.width = width)
+  static defaultTextStyle(w = 0, h = 0) {
+    return {
+      'fill': '#000',
+      'font-size': Math.min(w, h) / 2,
+      'text-anchor': 'middle',
+      'alignment-baseline': 'central',
+      'dominant-baseline': 'central'
+    }
   }
 
-  set height(height) {
-    this.elements.forEach(e => e.height = height)
-  }
-
-  set value(value) {
-    this.text.text = value
-  }
-
-  setStyles(styles) {
+  setShapeStyles(styles) {
     this.rect.style = styles
   }
 
@@ -47,11 +46,11 @@ export default class RectWithText extends ElementGroup {
     this.text.style = styles
   }
 
-  setStyle(arg, value) {
-    this.rect.style[arg] = value
+  setShapeStyle(arg, value) {
+    this.style.shape[arg] = value
   }
 
   setTextStyle(arg, value) {
-    this.text.style[arg] = value
+    this.style.text[arg] = value
   }
 }

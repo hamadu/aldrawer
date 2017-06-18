@@ -1,42 +1,40 @@
-import Circle from './circle'
-import Text from './text'
-import ElementGroup from './elementGroup'
+import RectWithText from '/src/model/rectWithText'
 
-export default class CircleWithText extends ElementGroup {
-  constructor(x, y, r, value) {
-    const circle = new Circle(x, y, r)
-    const text = new Text(x - r, y - r, r * 2, r * 2, value)
-
-    super([circle, text])
+export default class CircleWithText {
+  constructor(x, y, r, text = '', shapeStyle = RectWithText.defaultShapeStyle(), textStyle = RectWithText.defaultTextStyle(r * 2, r * 2)) {
+    this.type = 'circle'
+    this.x = x - r
+    this.y = y - r
+    this.w = r * 2
+    this.h = r * 2
     this.text = text
-    this.circle = circle
-  }
-
-  static create(x, y, r, value) {
-    return new CircleWithText(x, y, r, value)
+    this.style = {
+      shape: shapeStyle,
+      text: textStyle
+    }
   }
 
   get cx() {
-    return this.circle.cx
+    return this.x + this.w / 2
   }
 
   get cy() {
-    return this.circle.cy
+    return this.y + this.h / 2
   }
 
-  get value() {
-    return this.text.text
+  setShapeStyles(styles) {
+    this.rect.style = styles
   }
 
-  set value(value) {
-    this.text.text = value
+  setTextStyles(styles) {
+    this.text.style = styles
   }
 
-  setStyles(styles) {
-    this.circle.style = styles
+  setShapeStyle(arg, value) {
+    this.style.shape[arg] = value
   }
 
-  setStyle(arg, value) {
-    this.circle.style[arg] = value
+  setTextStyle(arg, value) {
+    this.style.text[arg] = value
   }
 }
