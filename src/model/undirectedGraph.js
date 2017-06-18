@@ -36,7 +36,7 @@ export default class UndirectedGraph {
   }
 
   getEdgeElement(index) {
-    return this.vertexElements[index]
+    return this.edgeElements[index]
   }
 
   get(index) {
