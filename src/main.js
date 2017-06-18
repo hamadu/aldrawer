@@ -21,7 +21,7 @@ class World {
     this.objects = []
     this.rootComponent = new Vue({
       el: selector,
-      template: '<App :width=width :height=height :connections=connections :objects=objects></App>',
+      template: '<App :width=width :height=height :objects=objects></App>',
       data: {
         width: svgOptions.width,
         height: svgOptions.height,

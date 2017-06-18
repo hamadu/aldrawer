@@ -38,12 +38,20 @@ export default class RectWithText {
     }
   }
 
+  getShapeStyle() {
+    return this.style.shape
+  }
+
+  getTextStyle() {
+    return this.style.text
+  }
+
   setShapeStyles(styles) {
-    this.rect.style = styles
+    this.style.shape = styles
   }
 
   setTextStyles(styles) {
-    this.text.style = styles
+    this.style.text = styles
   }
 
   setShapeStyle(arg, value) {

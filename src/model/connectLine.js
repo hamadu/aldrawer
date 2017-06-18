@@ -5,8 +5,4 @@ export default class ConnectLine {
     this.to = to
     this.style = style
   }
-
-  toElements() {
-    return [this]
-  }
 }

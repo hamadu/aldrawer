@@ -74,6 +74,12 @@ export default class ArrayedObject {
     this.shapeStyles[index][arg] = value
   }
 
+  setShapeStyles(styles) {
+    for (let k in styles) {
+      this.shapeStyles.forEach(e => e[k] = styles[k])
+    }
+  }
+
   getTextStyle(index) {
     return this.textStyles[index]
   }

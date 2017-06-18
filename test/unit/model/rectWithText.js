@@ -21,3 +21,17 @@ describe('get/set value', function () {
     assert.equal(rectText.text, 'NEWVALUE')
   })
 })
+
+describe('get/set styles', function () {
+  const rectText = new RectWithText(25, 80, 30, 120, 'VALUE')
+
+  it('set styles', function () {
+    rectText.setShapeStyles({ 'fill': '#0f0', 'stroke-width': '4px' })
+    assert.equal(rectText.getShapeStyle().fill, '#0f0')
+  })
+
+  it('set single style', function () {
+    rectText.setShapeStyle('hoge', 'moge')
+    assert.equal(rectText.getShapeStyle().hoge, 'moge')
+  })
+})
