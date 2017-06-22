@@ -1,6 +1,6 @@
 {
   "name": "aldrawer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "drawing tool for algorithm visualization",
   "main": "index.js",
   "scripts": {
